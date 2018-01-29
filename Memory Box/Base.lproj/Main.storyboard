@@ -27,18 +27,18 @@
                             <size key="itemSize" width="147" height="183"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                            <inset key="sectionInset" minX="30" minY="15" maxX="30" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="7vI-zr-wD7" customClass="MemoryCell" customModule="Memory_Box" customModuleProvider="target">
-                                <rect key="frame" x="10" y="10" width="140" height="180"/>
+                                <rect key="frame" x="30" y="15" width="146" height="180"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="140" height="180"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="146" height="180"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0ew-7H-KV7">
-                                            <rect key="frame" x="5" y="5" width="131" height="128"/>
+                                            <rect key="frame" x="7" y="5" width="131" height="128"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Memory" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deN-cb-k5Q">
@@ -66,14 +66,14 @@
                                 </view>
                                 <color key="backgroundColor" red="0.97249046750663126" green="0.96728175958734441" blue="0.96585266042852613" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <size key="customSize" width="140" height="180"/>
+                                <size key="customSize" width="146" height="180"/>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </variation>
                                 <connections>
-                                    <outlet property="date" destination="Gom-ip-nyb" id="dYN-A1-OvR"/>
-                                    <outlet property="imageView" destination="0ew-7H-KV7" id="8WF-Fp-MJd"/>
-                                    <outlet property="name" destination="deN-cb-k5Q" id="12b-Of-kB4"/>
+                                    <outlet property="date" destination="Gom-ip-nyb" id="fCw-2i-ZVe"/>
+                                    <outlet property="imageView" destination="0ew-7H-KV7" id="bmC-hv-ItN"/>
+                                    <outlet property="name" destination="deN-cb-k5Q" id="BbJ-To-8lv"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -88,10 +88,10 @@
             </objects>
             <point key="canvasLocation" x="708" y="68.815592203898049"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Detail-->
         <scene sceneID="k3W-SF-om4">
             <objects>
-                <viewController storyboardIdentifier="Detail" id="xGE-gx-Gr5" customClass="DetailViewController" customModule="Memory_Box" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Detail" title="Detail" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xGE-gx-Gr5" customClass="DetailViewController" customModule="Memory_Box" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZLA-pJ-f32">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -133,10 +133,10 @@
                         <viewLayoutGuide key="safeArea" id="WfM-Gu-Dsi"/>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="U7E-3O-Jjo" id="kBB-nH-IMa"/>
+                        <outlet property="detailImageView" destination="U7E-3O-Jjo" id="eHg-QS-2Oe"/>
                         <outlet property="memoryDate" destination="fqe-4L-DWh" id="bzT-dm-yJP"/>
                         <outlet property="memoryDetails" destination="q0H-m7-a2J" id="6Ck-8g-Oae"/>
-                        <outlet property="memoryName" destination="yaK-Pk-Tuw" id="8Ar-Kf-5bY"/>
+                        <outlet property="memoryName" destination="dZV-WL-A9h" id="lky-WH-yKD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3wI-mW-M94" userLabel="First Responder" sceneMemberID="firstResponder"/>

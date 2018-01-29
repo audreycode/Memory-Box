@@ -13,7 +13,7 @@ class DetailViewController: UIViewController {
     var currentMemory: Memory?
 
     @IBOutlet weak var memoryName: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var memoryDate: UILabel!
     @IBOutlet weak var memoryDetails: UILabel!
     
@@ -22,13 +22,13 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         let notificationCenter = NotificationCenter.default
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteMemory))
-
-        memoryName.text = currentMemory!.name
-        memoryDate.text = currentMemory!.date
-       // let memory = Memory(name: "Unknown", image: imageName)
-      //  people.append(person)
-       // collectionView?.reloadData()
+        
+        detailImageView.image = UIImage(named: (currentMemory?.image)!)
+        
+        memoryName.text = currentMemory?.name
+        memoryDate.text = currentMemory?.date
     }
+    
     
     @objc func deleteMemory() {
         // safely unwrap our webview

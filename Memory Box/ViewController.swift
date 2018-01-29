@@ -14,7 +14,6 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         title = "Memory Box"
         self.collectionView?.backgroundColor = .brown
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewMemory))
@@ -61,7 +60,6 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func getDocumentsDirectory() -> URL {
@@ -95,18 +93,10 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
-            vc.currentMemory = memories[indexPath.item]
-            
-            let path = getDocumentsDirectory().appendingPathComponent((vc.currentMemory?.image)!)
-            
-            assert(vc.currentMemory !== nil, "The memory is optional")
-            assert(UIImage(contentsOfFile: path.path) !== nil, "The path is returning nil")
-            
-            vc.imageView.image = UIImage(contentsOfFile: path.path) //Line in question
+            vc.currentMemory = memories[indexPath.row]
             navigationController?.pushViewController(vc, animated: true)
         }
     }
-
-
+      
 }
 
