@@ -12,18 +12,17 @@ class DetailViewController: UIViewController {
     
     var currentMemory: Memory?
 
-    @IBOutlet weak var memoryName: UILabel!
+    @IBOutlet weak var memoryName: UITextView!
     @IBOutlet weak var detailImageView: UIImageView!
-    @IBOutlet weak var memoryDate: UILabel!
-    @IBOutlet weak var memoryDetails: UILabel!
-    
+    @IBOutlet weak var memoryDate: UITextView!
+    @IBOutlet weak var memoryDetails: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let notificationCenter = NotificationCenter.default
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteMemory))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteMemory))
         
-        detailImageView.image = UIImage(named: (currentMemory?.image)!)
+        detailImageView.image = currentMemory?.image
         
         memoryName.text = currentMemory?.name
         memoryDate.text = currentMemory?.date

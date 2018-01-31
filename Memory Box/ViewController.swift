@@ -15,7 +15,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Memory Box"
-        self.collectionView?.backgroundColor = .brown
+        self.collectionView?.backgroundColor = UIColor(hue: 0.100, saturation: 0.5, brightness: 0.85, alpha: 1)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewMemory))
              let notificationCenter = NotificationCenter.default
         let defaults = UserDefaults.standard
@@ -38,14 +38,14 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        guard let image = info[UIImagePickerControllerEditedImage] as? UIImage else { return }
-        let imageName = UUID().uuidString
-        let imagePath = getDocumentsDirectory().appendingPathComponent(imageName)
-        if let jpegData = UIImageJPEGRepresentation(image, 80) {
-            try? jpegData.write(to: imagePath)
-            print(jpegData)
-        }
-        let memory = Memory(name: "Unknown", date: "Unknown", image: imageName)
+        guard let thisImage = info[UIImagePickerControllerEditedImage] as? UIImage else { return }
+   //     let imageName = UUID().uuidString
+     //   let imagePath = getDocumentsDirectory().appendingPathComponent(imageName)
+     //   if let jpegData = UIImageJPEGRepresentation(image, 80) {
+     //       try? jpegData.write(to: imagePath)
+      //      print(jpegData)
+      //  }
+        let memory = Memory(name: "Unknown", date: "Unknown", image: thisImage)
         memories.append(memory)
         collectionView?.reloadData()
         dismiss(animated: true)
@@ -79,9 +79,9 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
             
             cell.name.text = memory.name
             cell.date.text = memory.date
-            
-            let path = getDocumentsDirectory().appendingPathComponent(memory.image)
-            cell.imageView.image = UIImage(contentsOfFile: path.path)
+        // let path = getDocumentsDirectory().appendingPathComponent(thisImage)
+        // cell.imageView.image = UIImage(contentsOfFile: path.path)
+            cell.imageView.image = memory.image
             
             cell.imageView.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).cgColor
             cell.imageView.layer.borderWidth = 2

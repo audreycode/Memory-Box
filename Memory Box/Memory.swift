@@ -13,7 +13,7 @@ class Memory: NSObject, NSCoding {
     required init?(coder aDecoder: NSCoder) {
         name = aDecoder.decodeObject(forKey: "name") as! String
         date = aDecoder.decodeObject(forKey: "date") as! String
-        image = aDecoder.decodeObject(forKey: "image") as! String
+        image = aDecoder.decodeObject(forKey: "image") as! UIImage
     }
     
     func encode(with aCoder: NSCoder) {
@@ -25,9 +25,9 @@ class Memory: NSObject, NSCoding {
     
     var name: String
     var date: String
-    var image: String
+    var image: UIImage
     
-    init(name: String, date: String, image: String) {
+    init(name: String, date: String, image: UIImage) {
         self.name = name
         self.date = date
         self.image = image
