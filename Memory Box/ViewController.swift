@@ -18,16 +18,22 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         self.collectionView?.backgroundColor = UIColor(hue: 0.100, saturation: 0.5, brightness: 0.85, alpha: 1)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewMemory))
         let notificationCenter = NotificationCenter.default
-        let defaults = UserDefaults.standard
-        
-        if let savedMemories = defaults.object(forKey: "memories") as? Data {
-            memories = NSKeyedUnarchiver.unarchiveObject(with: savedMemories) as! [Memory]
-            notificationCenter.addObserver(self, selector: #selector(saveMemory), name: Notification.Name.UIApplicationWillResignActive, object: nil)
-        }
+       // let defaults = UserDefaults.standard
+  
+      //  if let savedMemories = defaults.object(forKey: "memories") as? Data {
+        //    memories = NSKeyedUnarchiver.unarchiveObject(with: savedMemories) as! [Memory]
+       //     notificationCenter.addObserver(self, selector: #selector(saveMemory), name: Notification.Name.UIApplicationWillResignActive, object: nil)
+      //  }
     }
     
     @objc func saveMemory() {
-        //
+   //     let jsonEncoder = JSONEncoder()
+   //     if let savedData = try? jsonEncoder.encode(memories) {
+     //       let defaults = UserDefaults.standard
+   //         defaults.set(savedData, forKey: "memories")
+ //       } else {
+   //         print("Failed to save notes.")
+ //       }
     }
     
    @objc func addNewMemory() {
@@ -53,9 +59,9 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     }
     
     func save() {
-        let savedData = NSKeyedArchiver.archivedData(withRootObject: memories)
-        let defaults = UserDefaults.standard
-        defaults.set(savedData, forKey: "memories")
+       // let savedData = NSKeyedArchiver.archivedData(withRootObject: memories)
+      //  let defaults = UserDefaults.standard
+     //   defaults.set(savedData, forKey: "memories")
     }
     
     override func didReceiveMemoryWarning() {
