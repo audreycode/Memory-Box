@@ -11,57 +11,70 @@ import UIKit
 class ViewController: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var memories = [Memory]()
+    var deleteMode: Bool = false {
+        didSet {
+            if deleteMode {
+                title = "Deleting"
+                 navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+            } else {
+                title = "Memory Box"
+                navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteMemory))
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Memory Box"
-        self.collectionView?.backgroundColor = UIColor(hue: 0.100, saturation: 0.5, brightness: 0.85, alpha: 1)
+        self.collectionView?.backgroundColor = UIColor(hue: 500.0, saturation: 0.0, brightness: 0.85, alpha: 1)
+           let notificationCenter = NotificationCenter.default
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewMemory))
-        let notificationCenter = NotificationCenter.default
-       // let defaults = UserDefaults.standard
-  
-      //  if let savedMemories = defaults.object(forKey: "memories") as? Data {
-        //    memories = NSKeyedUnarchiver.unarchiveObject(with: savedMemories) as! [Memory]
-       //     notificationCenter.addObserver(self, selector: #selector(saveMemory), name: Notification.Name.UIApplicationWillResignActive, object: nil)
-      //  }
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteMemory))
+        if let image = UIImage(named: "image") {
+            if let data = UIImagePNGRepresentation(image) {
+                let filename = getDocumentsDirectory().appendingPathComponent("copy.png")
+                try? data.write(to: filename)
+                print(filename)
+            }
+        }
+        save()
     }
     
-    @objc func saveMemory() {
-   //     let jsonEncoder = JSONEncoder()
-   //     if let savedData = try? jsonEncoder.encode(memories) {
-     //       let defaults = UserDefaults.standard
-   //         defaults.set(savedData, forKey: "memories")
- //       } else {
-   //         print("Failed to save notes.")
- //       }
+    @objc func deleteMemory() {
+        title = "Deleting"
+      deleteMode = true
+    }
+    
+    @objc func done() {
+        title = "Memory Box"
+        deleteMode = false
     }
     
    @objc func addNewMemory() {
         let picker = UIImagePickerController()
         picker.allowsEditing = true
         picker.delegate = self
+
         present(picker, animated: true)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         guard let image = info[UIImagePickerControllerEditedImage] as? UIImage else { return }
-   //     let imageName = UUID().uuidString
-     //   let imagePath = getDocumentsDirectory().appendingPathComponent(imageName)
-     //   if let jpegData = UIImageJPEGRepresentation(image, 80) {
-     //       try? jpegData.write(to: imagePath)
-      //      print(jpegData)
-      //  }
-        let memory = Memory(name: "Unknown", date: "Unknown", image: image)
+        let memory = Memory(name: "", date: "", image: image, details: "")
         memories.append(memory)
         collectionView?.reloadData()
         dismiss(animated: true)
         save()
     }
     
-    func save() {
-       // let savedData = NSKeyedArchiver.archivedData(withRootObject: memories)
-      //  let defaults = UserDefaults.standard
-     //   defaults.set(savedData, forKey: "memories")
+   @objc func save() {
+    if let image = UIImage(named: "image") {
+        if let data = UIImagePNGRepresentation(image) {
+            let filename = getDocumentsDirectory().appendingPathComponent("copy.png")
+            try? data.write(to: filename)
+                print(filename)
+        }
+    }
     }
     
     override func didReceiveMemoryWarning() {
@@ -85,8 +98,6 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
             
             cell.name.text = memory.name
             cell.date.text = memory.date
-        // let path = getDocumentsDirectory().appendingPathComponent(thisImage)
-        // cell.imageView.image = UIImage(contentsOfFile: path.path)
             cell.imageView.image = memory.image
             
             cell.imageView.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).cgColor
@@ -98,9 +109,19 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if deleteMode {
+            let ac = UIAlertController(title: "Are you sure you want to delete this memory?", message: nil, preferredStyle: .actionSheet)
+            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            ac.addAction(UIAlertAction(title: "Delete", style: .default) { [unowned self, ac] _ in
+                self.memories.remove(at: indexPath.item)
+                self.collectionView?.deleteItems(at: [indexPath])
+            })
+            present(ac, animated: true)
+        } else {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
             vc.currentMemory = memories[indexPath.item]
             navigationController?.pushViewController(vc, animated: true)
+        }
         }
     }
       

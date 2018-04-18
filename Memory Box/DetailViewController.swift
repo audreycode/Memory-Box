@@ -19,28 +19,39 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let notificationCenter = NotificationCenter.default
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteMemory))
+      //  let notificationCenter = NotificationCenter.default
+      //  navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteMemory))
         
         detailImageView.image = currentMemory?.image
         
         memoryName.text = currentMemory?.name
         memoryDate.text = currentMemory?.date
+        memoryDetails.text = currentMemory?.details
     }
     
-    
-    @objc func deleteMemory() {
-        // safely unwrap our webview
-       // if let detailView = activeWebView {
-           // if let index = stackView.arrangedSubviews.index(of: webView) {
-                // we found the current webview in the stack view! Remove it from the stack view”
-         //       DeatilViewController.removeArrangedSubview(currentMemory)
-                
-                // now remove it from the view hierarchy – this is important!
-            //    detailView.removeFromSuperview()
+    @objc func save() {
+        if let image = currentMemory?.image {
+            if let data = UIImagePNGRepresentation(image) {
+                let filename = getDocumentsDirectory().appendingPathComponent("copy.png")
+                try? data.write(to: filename)
+               // UserDefaults.standardUserDefaults().setObject(filename, forKey: "")
+              //  UserDefaults.standardUserDefaults().synchronize()
+            }
+        }
     }
-      
     
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+       // save()
+        currentMemory?.name = memoryName.text!
+        currentMemory?.date = memoryDate.text!
+        currentMemory?.details = memoryDetails.text!
+        save()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

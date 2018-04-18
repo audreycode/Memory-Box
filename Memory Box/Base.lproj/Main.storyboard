@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,10 +14,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--View-->
         <scene sceneID="bZm-h0-1fe">
             <objects>
-                <collectionViewController id="OIe-i3-DbB" customClass="ViewController" customModule="Memory_Box" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="View" title="View" id="OIe-i3-DbB" customClass="ViewController" customModule="Memory_Box" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="sTX-2b-M7W">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -96,9 +95,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U7E-3O-Jjo">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U7E-3O-Jjo">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="375" id="vxf-a0-x6d"/>
+                                </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Cu7-ch-Zre">
                                 <rect key="frame" x="0.0" y="383" width="232" height="38"/>
@@ -115,7 +116,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="P83-Nd-Rcb">
-                                <rect key="frame" x="0.0" y="429" width="375" height="238"/>
+                                <rect key="frame" x="0.0" y="422" width="375" height="245"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="17"/>
@@ -123,6 +124,11 @@
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="U7E-3O-Jjo" secondAttribute="trailing" id="0km-9V-aST"/>
+                            <constraint firstItem="U7E-3O-Jjo" firstAttribute="top" secondItem="ZLA-pJ-f32" secondAttribute="top" id="6eZ-F4-csz"/>
+                            <constraint firstItem="U7E-3O-Jjo" firstAttribute="leading" secondItem="ZLA-pJ-f32" secondAttribute="leading" id="ece-jM-yDY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="WfM-Gu-Dsi"/>
                     </view>
                     <connections>

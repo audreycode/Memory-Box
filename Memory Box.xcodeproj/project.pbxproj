@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		765C3458205C099F00465B3B /* cube-outline-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 765C3457205C099F00465B3B /* cube-outline-2.png */; };
+		765C345A205C0ABB00465B3B /* love-hand-drawn-heart-symbol-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = 765C3459205C0ABA00465B3B /* love-hand-drawn-heart-symbol-outline.png */; };
+		7663E3E920606048007E919C /* love-hand-drawn-heart-symbol-outline-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7663E3E820606048007E919C /* love-hand-drawn-heart-symbol-outline-2.png */; };
 		7685D2632017EA2100A48DF9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7685D2622017EA2100A48DF9 /* DetailViewController.swift */; };
 		769A49E72016940A00CB8F25 /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769A49E62016940A00CB8F25 /* Memory.swift */; };
 		769A49E9201696A100CB8F25 /* MemoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769A49E8201696A100CB8F25 /* MemoryCell.swift */; };
@@ -17,6 +20,8 @@
 		76D8FEBB200D7033006B5EE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76D8FEB9200D7033006B5EE6 /* LaunchScreen.storyboard */; };
 		76D8FEC6200D7033006B5EE6 /* Memory_BoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D8FEC5200D7033006B5EE6 /* Memory_BoxTests.swift */; };
 		76D8FED1200D7033006B5EE6 /* Memory_BoxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D8FED0200D7033006B5EE6 /* Memory_BoxUITests.swift */; };
+		76FC6DDC2067EA5E00F666F7 /* MEMORY.png in Resources */ = {isa = PBXBuildFile; fileRef = 76FC6DDB2067EA5E00F666F7 /* MEMORY.png */; };
+		76FC6DDE2067EB3C00F666F7 /* BOX.png in Resources */ = {isa = PBXBuildFile; fileRef = 76FC6DDD2067EB3C00F666F7 /* BOX.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		765C3457205C099F00465B3B /* cube-outline-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cube-outline-2.png"; sourceTree = "<group>"; };
+		765C3459205C0ABA00465B3B /* love-hand-drawn-heart-symbol-outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "love-hand-drawn-heart-symbol-outline.png"; sourceTree = "<group>"; };
+		7663E3E820606048007E919C /* love-hand-drawn-heart-symbol-outline-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "love-hand-drawn-heart-symbol-outline-2.png"; sourceTree = "<group>"; };
 		7685D2622017EA2100A48DF9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		769A49E62016940A00CB8F25 /* Memory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memory.swift; sourceTree = "<group>"; };
 		769A49E8201696A100CB8F25 /* MemoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryCell.swift; sourceTree = "<group>"; };
@@ -53,6 +61,8 @@
 		76D8FECC200D7033006B5EE6 /* Memory BoxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Memory BoxUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D8FED0200D7033006B5EE6 /* Memory_BoxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memory_BoxUITests.swift; sourceTree = "<group>"; };
 		76D8FED2200D7033006B5EE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76FC6DDB2067EA5E00F666F7 /* MEMORY.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MEMORY.png; sourceTree = "<group>"; };
+		76FC6DDD2067EB3C00F666F7 /* BOX.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BOX.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +121,11 @@
 				7685D2622017EA2100A48DF9 /* DetailViewController.swift */,
 				76D8FEB7200D7033006B5EE6 /* Assets.xcassets */,
 				76D8FEB9200D7033006B5EE6 /* LaunchScreen.storyboard */,
+				76FC6DDD2067EB3C00F666F7 /* BOX.png */,
+				765C3457205C099F00465B3B /* cube-outline-2.png */,
+				765C3459205C0ABA00465B3B /* love-hand-drawn-heart-symbol-outline.png */,
+				7663E3E820606048007E919C /* love-hand-drawn-heart-symbol-outline-2.png */,
+				76FC6DDB2067EA5E00F666F7 /* MEMORY.png */,
 				76D8FEBC200D7033006B5EE6 /* Info.plist */,
 			);
 			path = "Memory Box";
@@ -241,8 +256,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				765C3458205C099F00465B3B /* cube-outline-2.png in Resources */,
 				76D8FEBB200D7033006B5EE6 /* LaunchScreen.storyboard in Resources */,
+				76FC6DDC2067EA5E00F666F7 /* MEMORY.png in Resources */,
+				76FC6DDE2067EB3C00F666F7 /* BOX.png in Resources */,
+				7663E3E920606048007E919C /* love-hand-drawn-heart-symbol-outline-2.png in Resources */,
 				76D8FEB8200D7033006B5EE6 /* Assets.xcassets in Resources */,
+				765C345A205C0ABB00465B3B /* love-hand-drawn-heart-symbol-outline.png in Resources */,
 				76D8FEB6200D7033006B5EE6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,7 +395,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -426,7 +446,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -445,7 +465,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Audrey.Memory-Box";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -460,7 +480,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Audrey.Memory-Box";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

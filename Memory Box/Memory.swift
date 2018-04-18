@@ -8,30 +8,39 @@
 
 import UIKit
 
-class Memory: NSObject, NSCoding {
+class Memory: NSObject {
     
     var name: String
     var date: String
     var image: UIImage
-    
+    var details: String
+
     required init?(coder aDecoder: NSCoder) {
         name = aDecoder.decodeObject(forKey: "name") as! String
         date = aDecoder.decodeObject(forKey: "date") as! String
-        print(type(of: aDecoder.decodeObject(forKey: "image")))
         image = aDecoder.decodeObject(forKey: "image") as! UIImage
-        print(type(of: aDecoder.decodeObject(forKey: "image")))
+        details = aDecoder.decodeObject(forKey: "details") as! String
     }
+
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(name, forKey: "name")
         aCoder.encode(date, forKey: "date")
         aCoder.encode(image, forKey: "image")
+        aCoder.encode(details, forKey: "details")
     }
     
-    init(name: String, date: String, image: UIImage) {
+  //  func encode(_ object: Any?, forKey key: String) {
+  //      encode(name, forKey: "name")
+  //      encode(date, forKey: "date")
+//        encode(image, forKey: "image")
+//    }
+    
+    init(name: String, date: String, image: UIImage, details: String) {
         self.name = name
         self.date = date
         self.image = image
+        self.details = details
     }
 
 }
