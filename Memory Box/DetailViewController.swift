@@ -11,12 +11,23 @@ import UIKit
 class DetailViewController: UIViewController {
     
     var currentMemory: Memory?
-
+    
+    weak var collectionViewController:UICollectionViewController?
     @IBOutlet weak var memoryName: UITextView!
     @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var memoryDate: UITextView!
     @IBOutlet weak var memoryDetails: UITextView!
     
+    init(controller:UICollectionViewController) {
+        self.collectionViewController = controller
+        super.init(nibName: nil, bundle: nil)
+        // ...
+        self.collectionViewController?.collectionView?.reloadData()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
       //  let notificationCenter = NotificationCenter.default
@@ -50,6 +61,7 @@ class DetailViewController: UIViewController {
         currentMemory?.name = memoryName.text!
         currentMemory?.date = memoryDate.text!
         currentMemory?.details = memoryDetails.text!
+        collectionViewController?.collectionView?.reloadData()
         save()
     }
 

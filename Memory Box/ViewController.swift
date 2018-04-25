@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    var detailView: DetailViewController!
     var memories = [Memory]()
     var deleteMode: Bool = false {
         didSet {
@@ -26,8 +27,12 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Memory Box"
+        self.detailView = DetailViewController(controller:self)
+        collectionView?.delegate = self
+        collectionView?.dataSource = self
         self.collectionView?.backgroundColor = UIColor(hue: 500.0, saturation: 0.0, brightness: 0.85, alpha: 1)
            let notificationCenter = NotificationCenter.default
+        collectionView?.reloadData()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewMemory))
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteMemory))
         if let image = UIImage(named: "image") {
@@ -37,7 +42,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
                 print(filename)
             }
         }
-        save()
+
     }
     
     @objc func deleteMemory() {
